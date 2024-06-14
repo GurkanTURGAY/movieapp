@@ -22,7 +22,7 @@
                 <div class="list-group">
                     {% for kategori in kategoriler %}
                         <a href="#" class="list-group-item list-group-item-action" aria-current="true">
-                        {{kategori}}   
+                        {{kategori.name}}   
                      </a>
                     {% endfor %}
                 </div>
@@ -32,15 +32,7 @@
                     {% for film in filmler %}
                         {% if film.anasayfa %}          
                             <div class="col-4">
-                                <div class="card" style="width: 18rem;">
-                                    <img src="{% static 'img/'|add:film.resim %}" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                    <h5 class="card-title">{{film.film_adi}}</h5>
-                                    <p class="card-text">{{film.aciklama}}</p>
-                                    <a href="#" class="btn btn-primary">Filmi İzle</a>
-                                    </div>
-                                </div>
-
+                                {% include 'partials/_movie.html' %}
                             </div>
                         {% endif %}
                     {% endfor %}

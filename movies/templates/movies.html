@@ -18,11 +18,10 @@
     <div class="container mt-3">
         <div class="row">
             <div class ="col-3">
-
                 <div class="list-group">
                     {% for kategori in kategoriler %}
                         <a href="#" class="list-group-item list-group-item-action" aria-current="true">
-                        {{kategori}}   
+                        {{kategori.name}}   
                      </a>
                     {% endfor %}
                 </div>
@@ -31,15 +30,7 @@
                 <div class="row">
                     {% for film in filmler %}        
                         <div class="col-4">
-                            <div class="card mb-2" style="width: 18rem;">
-                                <img src="{% static 'img/'|add:film.resim %}" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                <h5 class="card-title">{{film.film_adi}}</h5>
-                                <p class="card-text">{{film.aciklama}}</p>
-                                <a href="#" class="btn btn-primary">Filmi İzle</a>
-                                </div>
-                            </div>
-
+                            {% include 'partials/_movie.html' %}
                         </div>
                     {% endfor %}
                 </div>
